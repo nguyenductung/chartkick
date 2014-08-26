@@ -1,0 +1,17 @@
+<h3>Views By OS Per Day</h3>
+<pre><%= "<%= line_chart @views.group(:os).group_by_day(:created_at, format: \"%B %d, %Y\").count, discrete: true %"+">" %></pre>
+<%= line_chart @views.group(:os).group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
+<pre><%= "<%= area_chart @views.group(:os).group_by_day(:created_at, format: \"%B %d, %Y\").count, discrete: true %"+">" %></pre>
+<%= area_chart @views.group(:os).group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
+
+<h3>Views By Browser Per Day</h3>
+<pre><%= "<%= line_chart @views.group(:browser).group_by_day(:created_at, format: \"%B %d, %Y\").count, discrete: true %"+">" %></pre>
+<%= line_chart @views.group(:browser).group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
+<pre><%= "<%= area_chart @views.group(:browser).group_by_day(:created_at, format: \"%B %d, %Y\").count, discrete: true %"+">" %></pre>
+<%= area_chart @views.group(:browser).group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
+
+<h3>Views By OS Per Day</h3>
+<pre><%= "<%= line_chart @views.group(:country).group_by_day(:created_at, format: \"%B %d, %Y\").count, discrete: true %"+">" %></pre>
+<%= line_chart @views.group(:country).group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
+<pre><%= "<%= area_chart @views.group(:country).group_by_day(:created_at, format: \"%B %d, %Y\").count, discrete: true %"+">" %></pre>
+<%= area_chart @views.group(:country).group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>

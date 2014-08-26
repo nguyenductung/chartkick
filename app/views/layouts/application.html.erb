@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChartkickDemo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'http://www.google.com/jsapi', 'chartkick' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <br/>
+      <h1>Chartkick Demo</h1>
+      <br/>
+    </div>
+    <% class_name =  %>
+    <%= link_to "Raw Data", views_path, class:
+      "btn #{request.path == views_path || request.path == "/" ? "btn-primary" : ""}" %>
+    <%= link_to "Total Views", total_views_path, class:
+      "btn #{request.path == total_views_path ? "btn-primary" : ""}" %>
+    <%= link_to "Views Per Day", views_per_day_path, class:
+      "btn #{request.path == views_per_day_path ? "btn-primary" : ""}" %>
+    <%= link_to "Average Duration", average_duration_path, class:
+      "btn #{request.path == average_duration_path ? "btn-primary" : ""}" %>
+    <br/><br/>
+    <%= yield %>
+    <br/><br/>
+  </div>
+</body>
+</html>

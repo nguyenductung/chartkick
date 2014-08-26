@@ -1,0 +1,35 @@
+<h3>Model View</h3>
+<pre>
+  # page view
+  create_table :views do |t|
+    t.string  :country
+    t.integer :duration # in seconds
+    t.string  :os
+    t.string  :browser
+
+    t.timestamps
+  end
+</pre>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Id</th>
+    <th>Country</th>
+    <th>Duration</th>
+    <th>OS</th>
+    <th>Browser</th>
+    <th>Created At</th>
+  </tr>
+  <% @views.each do |view| -%>
+  <tr>
+    <td><%= view.id %></td>
+    <td><%= view.country %></td>
+    <td><%= view.duration %></td>
+    <td><%= view.os %></td>
+    <td><%= view.browser %></td>
+    <td><%= view.created_at %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= will_paginate %>
