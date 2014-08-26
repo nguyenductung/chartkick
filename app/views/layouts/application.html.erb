@@ -21,6 +21,8 @@
       "btn #{request.path == total_views_path ? "btn-primary" : ""}" %>
     <%= link_to "Views Per Day", views_per_day_path, class:
       "btn #{request.path == views_per_day_path ? "btn-primary" : ""}" %>
+    <%= link_to "Duration", duration_path, class:
+      "btn #{request.path == duration_path ? "btn-primary" : ""}" %>
     <%= link_to "Average Duration", average_duration_path, class:
       "btn #{request.path == average_duration_path ? "btn-primary" : ""}" %>
     <br/><br/>

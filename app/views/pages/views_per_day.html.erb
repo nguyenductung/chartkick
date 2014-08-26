@@ -1,0 +1,50 @@
+<h3>Views By OS Per Day</h3>
+<pre>
+  # ViewsController
+  def views_by_os_per_day
+    data = View.group(:os).order(:os).group_by_day(:created_at, format: "%B %d, %Y").count
+    render json: data.chart_json
+  end
+</pre>
+<pre>
+  <%= "<%= line_chart views_by_os_per_day_path, discrete: true %"+">" %>
+</pre>
+<%= line_chart views_by_os_per_day_path, discrete: true %>
+<pre>
+  <%= "<%= area_chart views_by_os_per_day_path, discrete: true %"+">" %>
+</pre>
+<%= area_chart views_by_os_per_day_path, discrete: true %>
+
+<h3>Views By Browser Per Day</h3>
+<pre>
+  # ViewsController
+  def views_by_browser_per_day
+    data = View.group(:browser).order(:browser).group_by_day(:created_at, format: "%B %d, %Y").count
+    render json: data.chart_json
+  end
+</pre>
+<pre>
+  <%= "<%= line_chart views_by_browser_per_day_path, discrete: true %"+">" %>
+</pre>
+<%= line_chart views_by_browser_per_day_path, discrete: true %>
+<pre>
+  <%= "<%= area_chart views_by_browser_per_day_path, discrete: true %"+">" %>
+</pre>
+<%= area_chart views_by_browser_per_day_path, discrete: true %>
+
+<h3>Views By Country Per Day</h3>
+<pre>
+  # ViewsController
+  def views_by_country_per_day
+    data = View.group(:country).order(:country).group_by_day(:created_at, format: "%B %d, %Y").count
+    render json: data.chart_json
+  end
+</pre>
+<pre>
+  <%= "<%= line_chart views_by_country_per_day_path, discrete: true %"+">" %>
+</pre>
+<%= line_chart views_by_country_per_day_path, discrete: true %>
+<pre>
+  <%= "<%= area_chart views_by_country_per_day_path, discrete: true %"+">" %>
+</pre>
+<%= area_chart views_by_country_per_day_path, discrete: true %>

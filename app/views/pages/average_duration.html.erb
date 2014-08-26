@@ -1,0 +1,59 @@
+<h3>Average Duration By Day</h3>
+<pre>
+  # ViewsController
+  def average_duration_by_day
+    data = View.group_by_day(:created_at, format: "%B %d, %Y").average(:duration)
+      .map{|d| [d[0], d[1].to_f.round(2)]}
+    render json: data
+  end
+</pre>
+<pre>
+  <%= "<%= column_chart average_duration_by_day_path %"+">" %>
+</pre>
+<%= column_chart average_duration_by_day_path %>
+
+<h3>Average Duration By OS</h3>
+<pre>
+  # ViewsController
+  def average_duration_by_os
+    data = View.group(:os).order(:os).average(:duration)
+      .map{|d| [d[0], d[1].to_f.round(2)]}
+    render json: data
+  end
+</pre>
+<pre>
+  <%= "<%= column_chart average_duration_by_os_path %"+">" %>
+</pre>
+<%= column_chart average_duration_by_os_path %>
+
+<h3>Average Duration By Browser</h3>
+<pre>
+  # ViewsController
+  def average_duration_by_browser
+    data = View.group(:browser).order(:browser).average(:duration)
+      .map{|d| [d[0], d[1].to_f.round(2)]}
+    render json: data
+  end
+</pre>
+<pre>
+  <%= "<%= column_chart average_duration_by_browser_path %"+">" %>
+</pre>
+<%= column_chart average_duration_by_browser_path %>
+
+<h3>Average Duration By Country</h3>
+<pre>
+  # ViewsController
+  def average_duration_by_country
+    data = View.group(:country).order(:country).average(:duration)
+      .map{|d| [d[0], d[1].to_f.round(2)]}
+    render json: data
+  end
+</pre>
+<pre>
+  <%= "<%= bar_chart average_duration_by_country_path, height: \"450px\" %"+">" %>
+</pre>
+<%= bar_chart average_duration_by_country_path, height: "450px" %>
+<pre>
+  <%= "<%= geo_chart average_duration_by_country_path %"+">" %>
+</pre>
+<%= geo_chart average_duration_by_country_path %>
